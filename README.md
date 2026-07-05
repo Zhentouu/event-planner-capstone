@@ -1,16 +1,16 @@
 # Personal Event Planner
 
-## Checkpoint 1 - Initial project setup
+## Checkpoint 2 - Context and navigation setup
 
-This is the first stage of the React capstone project.
+This stage adds the Context API and simple page navigation.
 
 ## What has been added
 
-- React + Vite project structure
-- Main app component
-- Basic fixed header
-- Placeholder sections for the future app
-- Basic CSS styling
+- AppContext file
+- AppProvider wrapped around the app
+- Shared user and event state
+- Header navigation controlled by React state
+- Placeholder login, dashboard, add event and help pages
 
 ## How to run
 
@@ -22,5 +22,5 @@ npm run dev
 ## Suggested commit message
 
 ```bash
-git commit -m "Initial React Vite project setup"
+git commit -m "Add Context API and basic navigation"
 ```

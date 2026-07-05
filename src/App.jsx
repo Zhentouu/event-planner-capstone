@@ -1,40 +1,42 @@
+import { useState } from 'react';
+import Header from './components/Header.jsx';
+
 function App() {
+  const [currentPage, setCurrentPage] = useState('dashboard');
+
+  function renderPage() {
+    if (currentPage === 'add-event') {
+      return (
+        <section className="content-card">
+          <h1>Add Event</h1>
+          <p>The event form will be added in a later checkpoint.</p>
+        </section>
+      );
+    }
+
+    if (currentPage === 'help') {
+      return (
+        <section className="content-card">
+          <h1>Help</h1>
+          <p>Instructions for users will be added here.</p>
+        </section>
+      );
+    }
+
+    return (
+      <section className="content-card">
+        <h1>Dashboard</h1>
+        <p>The dashboard will show upcoming events once event data is added.</p>
+      </section>
+    );
+  }
+
   return (
     <>
-      <header className="app-header">
-        <div className="logo">Event Planner</div>
-
-        <nav className="nav-menu">
-          <a href="#dashboard">Dashboard</a>
-          <a href="#add-event">Add Event</a>
-          <a href="#help">Help</a>
-        </nav>
-      </header>
+      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       <main className="page-container">
-        <section className="hero-card">
-          <h1>Personal Event Planner</h1>
-          <p>
-            This app will help users organise personal and professional events.
-          </p>
-        </section>
-
-        <section className="placeholder-grid">
-          <div>
-            <h2>Dashboard</h2>
-            <p>Upcoming events will be displayed here.</p>
-          </div>
-
-          <div>
-            <h2>Add Event</h2>
-            <p>A form will be added here later.</p>
-          </div>
-
-          <div>
-            <h2>Help</h2>
-            <p>User instructions will be added here.</p>
-          </div>
-        </section>
+        {renderPage()}
       </main>
     </>
   );

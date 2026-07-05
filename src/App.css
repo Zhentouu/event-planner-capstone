@@ -21,6 +21,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
+  z-index: 10;
 }
 
 .logo {
@@ -39,6 +40,12 @@ body {
   background: #374151;
   padding: 10px 14px;
   border-radius: 8px;
+  font-weight: 700;
+}
+
+.nav-menu a:hover,
+.nav-menu .active {
+  background: #2563eb;
 }
 
 .page-container {
@@ -46,26 +53,18 @@ body {
   margin: 110px auto 40px;
 }
 
-.hero-card,
-.placeholder-grid div {
+.content-card {
   background: white;
   border-radius: 18px;
   padding: 28px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
-.placeholder-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 18px;
-}
-
 @media (max-width: 700px) {
   .app-header {
     height: auto;
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     padding: 16px;
     gap: 12px;
   }
@@ -74,7 +73,7 @@ body {
     margin-top: 150px;
   }
 
-  .placeholder-grid {
-    grid-template-columns: 1fr;
+  .nav-menu {
+    flex-wrap: wrap;
   }
 }
