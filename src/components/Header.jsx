@@ -20,39 +20,23 @@ function Header({ currentPage, setCurrentPage }) {
       <nav className="nav-menu">
         {currentUser ? (
           <>
-            <a
-              href="#dashboard"
-              className={currentPage === 'dashboard' ? 'active' : ''}
-              onClick={(event) => handleNavigation(event, 'dashboard')}
-            >
+            <a href="#dashboard" className={currentPage === 'dashboard' ? 'active' : ''} onClick={(event) => handleNavigation(event, 'dashboard')}>
               Dashboard
             </a>
-
-            <a
-              href="#help"
-              className={currentPage === 'help' ? 'active' : ''}
-              onClick={(event) => handleNavigation(event, 'help')}
-            >
+            <a href="#add-event" className={currentPage === 'add-event' ? 'active' : ''} onClick={(event) => handleNavigation(event, 'add-event')}>
+              Add Event
+            </a>
+            <a href="#help" className={currentPage === 'help' ? 'active' : ''} onClick={(event) => handleNavigation(event, 'help')}>
               Help
             </a>
-
             <button onClick={handleLogout}>Log out</button>
           </>
         ) : (
           <>
-            <a
-              href="#login"
-              className={currentPage === 'login' ? 'active' : ''}
-              onClick={(event) => handleNavigation(event, 'login')}
-            >
+            <a href="#login" className={currentPage === 'login' ? 'active' : ''} onClick={(event) => handleNavigation(event, 'login')}>
               Login
             </a>
-
-            <a
-              href="#register"
-              className={currentPage === 'register' ? 'active' : ''}
-              onClick={(event) => handleNavigation(event, 'register')}
-            >
+            <a href="#register" className={currentPage === 'register' ? 'active' : ''} onClick={(event) => handleNavigation(event, 'register')}>
               Register
             </a>
           </>

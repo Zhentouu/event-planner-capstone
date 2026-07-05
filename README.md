@@ -1,18 +1,17 @@
 # Personal Event Planner
 
-## Checkpoint 3 - User registration and login
+## Checkpoint 4 - Add events and dashboard
 
-This stage adds user account registration and login.
+This stage adds the core event planner functionality.
 
 ## What has been added
 
-- Register form
-- Login form
-- Empty field validation
-- Email format validation
-- Username and email duplicate checks
-- Login status stored in Context API
-- User data saved to localStorage
+- Add Event page
+- Event form validation
+- Event data stored in Context API
+- Dashboard showing user events
+- Events displayed with React array.map()
+- Event data saved to localStorage
 
 ## How to run
 
@@ -24,5 +23,5 @@ npm run dev
 ## Suggested commit message
 
 ```bash
-git commit -m "Add user registration and login validation"
+git commit -m "Add event creation and dashboard display"
 ```
