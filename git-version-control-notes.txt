@@ -1,0 +1,72 @@
+Git Version Control Notes
+=========================
+
+Project name:
+Personal Event Planner - React Capstone Project
+
+Repository:
+event-planner-capstone
+
+Purpose of version control:
+Git was used to track the progress of the React capstone project as it was developed in stages. Each commit represents a clear improvement or feature added to the application.
+
+Suggested commit history:
+1. Initial React Vite project setup
+   - Created the React + Vite project structure.
+   - Added the main App component.
+   - Added the first version of the fixed header.
+   - Added basic starter styling.
+
+2. Add Context API and basic navigation
+   - Added the AppContext file.
+   - Wrapped the app with AppProvider.
+   - Added shared state for users and events.
+   - Added simple page navigation between Dashboard, Add Event and Help.
+
+3. Add user registration and login validation
+   - Added a registration form.
+   - Added a login form.
+   - Added validation for empty fields.
+   - Added email format validation.
+   - Added duplicate username and email checks.
+   - Stored user login state using Context API and localStorage.
+
+4. Add event creation and dashboard display
+   - Added an event form.
+   - Allowed users to create events with name, date, time, description and location.
+   - Displayed events on the dashboard.
+   - Used array.map() to dynamically render event cards.
+   - Saved event data to localStorage.
+
+5. Add event editing and deleting
+   - Added edit functionality for existing events.
+   - Added delete functionality for removing events.
+   - Updated event data immediately in React state.
+   - Sorted events by date and time.
+
+6. Add responsive styling help page and README documentation
+   - Added the Help page.
+   - Added user guidance for registering, logging in, creating, editing and deleting events.
+   - Improved responsive styling for mobile and desktop screens.
+   - Added a README.md file with installation and running instructions.
+
+Git commands used:
+git init
+git add .
+git commit -m "Initial React Vite project setup"
+git commit -m "Add Context API and basic navigation"
+git commit -m "Add user registration and login validation"
+git commit -m "Add event creation and dashboard display"
+git commit -m "Add event editing and deleting"
+git commit -m "Add responsive styling help page and README documentation"
+git push
+
+How to check the commit history:
+git log --oneline
+
+How to run the project:
+npm install
+npm run dev
+
+Final note:
+The project was developed in clear stages so the progress of the application could be tracked through Git commits.
