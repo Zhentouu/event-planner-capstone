@@ -165,3 +165,29 @@ label {
     grid-template-columns: 1fr;
   }
 }
+
+
+.edit-card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.card-actions,
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card-actions button,
+.form-actions button {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.danger-button {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}

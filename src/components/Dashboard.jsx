@@ -1,9 +1,16 @@
 import { useAppContext } from '../context/AppContext.jsx';
+import EventCard from './EventCard.jsx';
 
 function Dashboard({ goToAddEvent }) {
   const { currentUser, events } = useAppContext();
 
-  const userEvents = events.filter((event) => event.username === currentUser.username);
+  const userEvents = events
+    .filter((event) => event.username === currentUser.username)
+    .sort((a, b) => {
+      const dateA = new Date(`${a.date}T${a.time}`);
+      const dateB = new Date(`${b.date}T${b.time}`);
+      return dateA - dateB;
+    });
 
   return (
     <section>
@@ -26,16 +33,7 @@ function Dashboard({ goToAddEvent }) {
       ) : (
         <div className="event-grid">
           {userEvents.map((event) => (
-            <article className="event-card" key={event.id}>
-              <div className="event-date">
-                <span>{event.date}</span>
-                <strong>{event.time}</strong>
-              </div>
-
-              <h2>{event.name}</h2>
-              <p>{event.description}</p>
-              <strong>Location: {event.location}</strong>
-            </article>
+            <EventCard key={event.id} event={event} />
           ))}
         </div>
       )}

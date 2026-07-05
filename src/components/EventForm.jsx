@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useAppContext } from '../context/AppContext.jsx';
 
-function EventForm({ goToDashboard }) {
-  const { addEvent } = useAppContext();
+function EventForm({ eventToEdit, stopEditing, goToDashboard }) {
+  const { addEvent, updateEvent } = useAppContext();
 
   const [formData, setFormData] = useState({
-    name: '',
-    date: '',
-    time: '',
-    description: '',
-    location: '',
+    name: eventToEdit ? eventToEdit.name : '',
+    date: eventToEdit ? eventToEdit.date : '',
+    time: eventToEdit ? eventToEdit.time : '',
+    description: eventToEdit ? eventToEdit.description : '',
+    location: eventToEdit ? eventToEdit.location : '',
   });
 
   const [message, setMessage] = useState('');
@@ -31,14 +31,28 @@ function EventForm({ goToDashboard }) {
       return;
     }
 
+    if (eventToEdit) {
+      updateEvent({
+        ...eventToEdit,
+        ...formData,
+      });
+
+      stopEditing();
+      return;
+    }
+
     addEvent(formData);
     goToDashboard();
   }
 
   return (
-    <section className="form-card">
-      <h1>Add a new event</h1>
-      <p>Add the details for your appointment, meeting or social event.</p>
+    <section className={eventToEdit ? 'edit-card' : 'form-card'}>
+      <h1>{eventToEdit ? 'Edit event' : 'Add a new event'}</h1>
+      <p>
+        {eventToEdit
+          ? 'Update the details for this event.'
+          : 'Add the details for your appointment, meeting or social event.'}
+      </p>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="event-name">Event name</label>
@@ -58,7 +72,17 @@ function EventForm({ goToDashboard }) {
 
         {message && <p className="message">{message}</p>}
 
-        <button className="primary-button" type="submit">Add event</button>
+        <div className="form-actions">
+          <button className="primary-button" type="submit">
+            {eventToEdit ? 'Save changes' : 'Add event'}
+          </button>
+
+          {eventToEdit && (
+            <button type="button" onClick={stopEditing}>
+              Cancel
+            </button>
+          )}
+        </div>
       </form>
     </section>
   );

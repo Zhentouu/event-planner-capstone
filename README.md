@@ -1,17 +1,17 @@
 # Personal Event Planner
 
-## Checkpoint 4 - Add events and dashboard
+## Checkpoint 5 - Edit and delete events
 
-This stage adds the core event planner functionality.
+This stage improves event management by allowing users to update and remove events.
 
 ## What has been added
 
-- Add Event page
-- Event form validation
-- Event data stored in Context API
-- Dashboard showing user events
-- Events displayed with React array.map()
-- Event data saved to localStorage
+- EventCard component
+- Edit event form
+- Delete event button
+- Events sorted by date and time
+- updateEvent function in Context API
+- deleteEvent function in Context API
 
 ## How to run
 
@@ -23,5 +23,5 @@ npm run dev
 ## Suggested commit message
 
 ```bash
-git commit -m "Add event creation and dashboard display"
+git commit -m "Add event editing and deleting"
 ```

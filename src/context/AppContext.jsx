@@ -70,6 +70,23 @@ export function AppProvider({ children }) {
     setEvents([...events, eventWithOwner]);
   }
 
+  function updateEvent(updatedEvent) {
+    const updatedEvents = events.map((event) => {
+      if (event.id === updatedEvent.id) {
+        return updatedEvent;
+      }
+
+      return event;
+    });
+
+    setEvents(updatedEvents);
+  }
+
+  function deleteEvent(eventId) {
+    const remainingEvents = events.filter((event) => event.id !== eventId);
+    setEvents(remainingEvents);
+  }
+
   const value = {
     currentUser,
     events,
@@ -77,6 +94,8 @@ export function AppProvider({ children }) {
     loginUser,
     logoutUser,
     addEvent,
+    updateEvent,
+    deleteEvent,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
