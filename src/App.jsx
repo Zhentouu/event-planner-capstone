@@ -1,16 +1,24 @@
 import { useState } from 'react';
+import { useAppContext } from './context/AppContext.jsx';
 import Header from './components/Header.jsx';
+import RegisterForm from './components/RegisterForm.jsx';
+import LoginForm from './components/LoginForm.jsx';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('dashboard');
+  const { currentUser } = useAppContext();
+  const [currentPage, setCurrentPage] = useState('login');
 
   function renderPage() {
-    if (currentPage === 'add-event') {
+    if (!currentUser) {
+      if (currentPage === 'register') {
+        return <RegisterForm goToLogin={() => setCurrentPage('login')} />;
+      }
+
       return (
-        <section className="content-card">
-          <h1>Add Event</h1>
-          <p>The event form will be added in a later checkpoint.</p>
-        </section>
+        <LoginForm
+          goToRegister={() => setCurrentPage('register')}
+          goToDashboard={() => setCurrentPage('dashboard')}
+        />
       );
     }
 
@@ -18,15 +26,15 @@ function App() {
       return (
         <section className="content-card">
           <h1>Help</h1>
-          <p>Instructions for users will be added here.</p>
+          <p>The full help guide will be added later.</p>
         </section>
       );
     }
 
     return (
       <section className="content-card">
-        <h1>Dashboard</h1>
-        <p>The dashboard will show upcoming events once event data is added.</p>
+        <h1>Welcome, {currentUser.name}</h1>
+        <p>Your event dashboard will be added in the next stage.</p>
       </section>
     );
   }

@@ -1,16 +1,18 @@
 # Personal Event Planner
 
-## Checkpoint 2 - Context and navigation setup
+## Checkpoint 3 - User registration and login
 
-This stage adds the Context API and simple page navigation.
+This stage adds user account registration and login.
 
 ## What has been added
 
-- AppContext file
-- AppProvider wrapped around the app
-- Shared user and event state
-- Header navigation controlled by React state
-- Placeholder login, dashboard, add event and help pages
+- Register form
+- Login form
+- Empty field validation
+- Email format validation
+- Username and email duplicate checks
+- Login status stored in Context API
+- User data saved to localStorage
 
 ## How to run
 
@@ -22,5 +24,5 @@ npm run dev
 ## Suggested commit message
 
 ```bash
-git commit -m "Add Context API and basic navigation"
+git commit -m "Add user registration and login validation"
 ```
