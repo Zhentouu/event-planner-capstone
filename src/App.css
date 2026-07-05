@@ -32,6 +32,7 @@ textarea {
 
 textarea {
   min-height: 100px;
+  resize: vertical;
 }
 
 label {
@@ -82,7 +83,7 @@ label {
 }
 
 .form-card,
-.content-card,
+.help-card,
 .empty-card {
   background: white;
   border-radius: 18px;
@@ -90,8 +91,7 @@ label {
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
-.form-card,
-.content-card {
+.form-card {
   max-width: 560px;
   margin: 0 auto;
 }
@@ -99,6 +99,10 @@ label {
 .primary-button {
   background: #2563eb;
   color: white;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
 }
 
 .text-button {
@@ -129,7 +133,8 @@ label {
   gap: 20px;
 }
 
-.event-card {
+.event-card,
+.edit-card {
   background: white;
   border-radius: 18px;
   padding: 22px;
@@ -144,6 +149,34 @@ label {
   padding: 12px;
   border-radius: 12px;
   margin-bottom: 16px;
+}
+
+.card-actions,
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card-actions button,
+.form-actions button {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.danger-button {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+.help-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 18px;
+  margin-top: 18px;
+}
+
+.help-section ul {
+  line-height: 1.8;
 }
 
 @media (max-width: 700px) {
@@ -164,30 +197,14 @@ label {
   .event-grid {
     grid-template-columns: 1fr;
   }
-}
 
+  .nav-menu {
+    width: 100%;
+  }
 
-.edit-card {
-  background: white;
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-}
-
-.card-actions,
-.form-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.card-actions button,
-.form-actions button {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.danger-button {
-  background: #fee2e2 !important;
-  color: #991b1b !important;
+  .nav-menu button,
+  .nav-menu a {
+    flex: 1;
+    text-align: center;
+  }
 }

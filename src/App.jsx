@@ -5,9 +5,13 @@ import RegisterForm from './components/RegisterForm.jsx';
 import LoginForm from './components/LoginForm.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import EventForm from './components/EventForm.jsx';
+import Help from './components/Help.jsx';
 
 function App() {
   const { currentUser } = useAppContext();
+
+  // This state controls which page is shown.
+  // This keeps the app simple without needing React Router.
   const [currentPage, setCurrentPage] = useState('login');
 
   function renderPage() {
@@ -29,12 +33,7 @@ function App() {
     }
 
     if (currentPage === 'help') {
-      return (
-        <section className="content-card">
-          <h1>Help</h1>
-          <p>The full help guide will be added in the final stage.</p>
-        </section>
-      );
+      return <Help />;
     }
 
     return <Dashboard goToAddEvent={() => setCurrentPage('add-event')} />;
